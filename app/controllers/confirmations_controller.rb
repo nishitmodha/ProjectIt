@@ -15,7 +15,7 @@ class ConfirmationsController < Devise::ConfirmationsController
           do_confirm
         else
           do_show
-          @confirmable.errors.clear #so that we wont render :new
+          @confirmable.errors.clear 
         end
       else
         @confirmable.errors.add(:email, :password_already_set)
@@ -24,7 +24,7 @@ class ConfirmationsController < Devise::ConfirmationsController
 
     if !@confirmable.errors.empty?
       self.resource = @confirmable
-      render 'devise/confirmations/new' #Change this if you don't have the views on default path
+      render 'devise/confirmations/new' 
     end
   end
 
@@ -39,7 +39,7 @@ class ConfirmationsController < Devise::ConfirmationsController
     end
     unless @confirmable.errors.empty?
       self.resource = @confirmable
-      render 'devise/confirmations/new' #Change this if you don't have the views on default path
+      render 'devise/confirmations/new'
     end
   end
 
@@ -56,7 +56,7 @@ class ConfirmationsController < Devise::ConfirmationsController
     @confirmation_token = params[:confirmation_token]
     @requires_password = true
     self.resource = @confirmable
-    render 'devise/confirmations/show' #Change this if you don't have the views on default path
+    render 'devise/confirmations/show' 
   end
 
   def do_confirm
